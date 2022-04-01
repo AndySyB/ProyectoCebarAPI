@@ -1,0 +1,49 @@
+{% include 'header.html' %}
+<br/>
+
+<a href="{{url_for('create')}}" class="btn btn-success">Ingresar nuevo votante</a>
+<br/>
+<br/>
+
+
+
+<table class="table table-responsive">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Cédula</th>
+            <th>Lider ID</th>
+            <th>Barrio ID</th>
+            <th>Puesto votación</th>
+            <th>Mesa</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for votante in dvotantes %}
+        <tr>
+            <td>{{votante[0] }}</td>
+            <td>{{votante[1] }}</td>
+            <td>{{votante[2] }}</td>
+            <td>{{votante[3] }}</td>
+            <td>{{votante[4] }}</td>
+            <td>{{votante[5] }}</td>
+            <td>{{votante[6] }}</td>
+            <td>{{votante[7] }}</td>
+            <td>{{votante[8] }}</td>
+            <td>{{votante[9] }}</td>
+            <td><a class="btn btn-primary"  href="/edit/{{votante[0] }}">Editar</a> |
+                <a onclick="return confirm('¿Desea borrar al votante?')" class="btn btn-danger" href="/destroy/{{votante[0] }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+
+{% include 'footer.html' %}

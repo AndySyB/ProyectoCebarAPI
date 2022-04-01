@@ -1,0 +1,73 @@
+{% include 'header.html' %}
+
+{% with messages= get_flashed_messages()%}
+
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endwith %}
+
+<br><br>
+<form method="post" action="/store" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-header">
+            Registrar votante
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del votante</h5>
+            <p class="card-text">
+
+            <div class="form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input id="txtNombre" class="form-control" type="text" name="txtNombre">
+            </div>
+            <div class="form-group">
+                <label for="txtApellidos"> Apellidos:</label>
+                <input id="txtApellidos" class="form-control" type="text" name="txtApellidos">
+            </div>
+            <div class="form-group">
+                <label for="txtDirección">Dirección:</label>
+                <input id="txtDirección" class="form-control" type="text" name="txtDirección">
+            </div>
+            <div class="form-group">
+                <label for="txtTeléfono">Teléfono:</label>
+                <input id="txtTeléfono" class="form-control" type="text" name="txtTeléfono">
+            </div>
+            <div class="form-group">
+                <label for="txtCédula">Cédula:</label>
+                <input id="txtCédula" class="form-control" type="text" name="txtCédula">
+            </div>
+            <div class="form-group">
+                <label for="txtLider">Lider ID:</label>
+                <input id="txtLider" class="form-control" type="text" name="txtLider">
+            </div>
+            <div class="form-group">
+                <label for="txtBarrio">Barrio ID:</label>
+                <input id="txtBarrio" class="form-control" type="text" name="txtBarrio">
+            </div>
+            <div class="form-group">
+                <label for="txtPuesto">Puesto votacion ID:</label>
+                <input id="txtPuesto" class="form-control" type="text" name="txtPuesto">
+            </div>
+            <div class="form-group">
+                <label for="txtMesa">Mesa:</label>
+                <input id="txtMesa" class="form-control" type="text" name="txtMesa">
+            </div>
+            <br>
+            <div class="form-group">
+
+                <input class="btn btn-success" type="submit" value="Agregar"> |
+                <a href="{{url_for('index')}}" class="btn btn-primary">Cancelar</a>
+            </div>
+            </p>
+        </div>
+    </div>
+</form>
+<br><br>
+
+{% include 'footer.html' %}
